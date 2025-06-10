@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dost Ki Detail Form</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+    }
+    img {
+      max-width: 200px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Dost Ki Detail Form</h2>
+
+  <form action="https://formsubmit.co/surajmalssssss@gmail.com" method="POST" enctype="multipart/form-data">
+    
+    <!-- CAPTCHA disable -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Redirect after submit -->
+    <input type="hidden" name="_next" value="https://thankyou.com/">
+
+    <label>Naam:</label>
+    <input type="text" name="naam" placeholder="Apna Naam likhiye" required>
+
+    <label>Gmail ID:</label>
+    <input type="email" name="gmail" placeholder="Apni Gmail ID likhiye" required>
+
+    <label>Janm Tithi (DOB):</label>
+    <input type="date" name="dob" required>
+
+    <label>Apna Photo Choose Karein:</label>
+    <input type="file" name="photo" accept="image/*" onchange="previewImage(event)" required>
+
+    <img id="preview" src="#" alt="Photo Preview" style="display:none;"/>
+
+    <button type="submit">Submit Karein</button>
+  </form>
+
+  <script>
+    function previewImage(event) {
+      const input = event.target;
+      const preview = document.getElementById('preview');
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+
+</body>
+</html>
